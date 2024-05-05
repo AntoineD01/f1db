@@ -1,19 +1,14 @@
-import yaml
+import display as d
+import file_management as fm
 
-def open_yaml_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            data = yaml.safe_load(file)
-        return data
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-    except yaml.YAMLError as e:
-        print(f"Error while parsing YAML file: {e}")
+
+def main():
+    file_path = r"circuits\adelaide.yml"
+    yaml_data = fm.open_yaml_file(file_path)
+    d.display_circuit(yaml_data)
+    nb_file = fm.count_files_in_folder(r"C:\Users\Antoine Dupont\Desktop\F1 Stats Project\f1db\circuits")
+    #for i in range(nb_file):
 
 # Example usage:
 if __name__ == "__main__":
-    file_path = "adelaide.yml"
-    yaml_data = open_yaml_file(file_path)
-    if yaml_data:
-        print("YAML file contents:")
-        print(yaml_data)
+    main()
