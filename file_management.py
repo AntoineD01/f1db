@@ -24,3 +24,12 @@ def count_files_in_folder(folder_path):
     for _, _, files in os.walk(folder_path):
         count += len(files)
     return count
+
+def store_circuit(path):
+    titles = get_file_titles_in_folder(path)
+    circuits = []
+    for title in titles:
+        file_path = path + title + ".yml"
+        yaml_data = open_yaml_file(file_path)
+        circuits.append(yaml_data)
+    return circuits

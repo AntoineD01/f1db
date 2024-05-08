@@ -27,5 +27,20 @@ def search_circuit(circuits, circuit_name):
         if circuit.get('name', '') == circuit_name:
             found_circuit = True
             index = i
-            break  
+            break
+    #Look with a capital letter at first
+    circuit_name = circuit_name.capitalize()
+    for i, circuit in enumerate(circuits):
+        if circuit.get('name', '') == circuit_name:
+            found_circuit = True
+            index = i
+            break
+    #Look with full caps
+    circuit_name = circuit_name.upper() 
+    for i, circuit in enumerate(circuits):
+        if circuit.get('name', '') == circuit_name:
+            found_circuit = True
+            index = i
+            break
+    
     return found_circuit, index
