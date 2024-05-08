@@ -1,5 +1,6 @@
 import display as d
 import file_management as fm
+import features as f
 
 
 def main():
@@ -9,17 +10,17 @@ def main():
     constructors = fm.store_data(path)
     
     while True:
-        to_do = int(input("\n\nWhat do you want to search (1 for circuit, 2 for constructor) ?\n"))
+        to_do = f.get_valid_input("\n\nWhat do you want to search (1 for circuit, 2 for constructor) ?\n", ["1","2"])
         if to_do==1:
             find_circuit = input("\nWhat circuit are your searching ?\n")
-            found, index = d.search(circuits, find_circuit)
+            found, index = f.search(circuits, find_circuit)
             if found:
                 d.display_circuit(circuits[index])
             else:
                 print(f"\nThe circuit {find_circuit} is not in the database.")
         elif to_do==2:
             find_construc = input("\nWhat constructor are your searching ?\n")
-            found, index = d.search(constructors, find_construc)
+            found, index = f.search(constructors, find_construc)
             if found:
                 d.display_constructors(constructors[index])
             else:

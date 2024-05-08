@@ -34,28 +34,3 @@ def display_constructors(data):
             else:
                 year_to_display = year_to
             print(f"  - Constructor Name: {constructor_id.capitalize()}, Years: {year_from} to {year_to_display}")
-
-def search(circuits, circuit_name):
-    found_circuit = False
-    index = None  
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
-            index = i
-            break
-    #Look with a capital letter at first
-    circuit_name = circuit_name.capitalize()
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
-            index = i
-            break
-    #Look with full caps
-    circuit_name = circuit_name.upper() 
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
-            index = i
-            break
-    
-    return found_circuit, index
