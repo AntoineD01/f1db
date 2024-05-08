@@ -12,15 +12,30 @@ def get_city(latitude, longitude):
     return city
 
 def display_circuit(data):
-    print("\n\nCIRCUIT")
-    print('Name :', data['name'])
+    print('\n\nCIRCUIT\nName :', data['name'])
     if data['previousNames'] != None:
         print('Also known as', data['previousNames'])
     print("Country :",data['countryId'])
     city = get_city(data['latitude'], data['longitude'])
     print("City :", city)
 
-def search_circuit(circuits, circuit_name):
+def display_constructors(data):
+    print('\n\nCONSTRUCTOR\nName :', data['name'])
+    
+    previous_constructors = data.get('previousNextConstructors', [])
+    if previous_constructors:
+        print('Name history:')
+        for constructor in previous_constructors:
+            constructor_id = constructor.get('constructorId', '')
+            year_from = constructor.get('yearFrom', '')
+            year_to = constructor.get('yearTo', '')
+            if year_to is None:
+                year_to_display = "Now"
+            else:
+                year_to_display = year_to
+            print(f"  - Constructor Name: {constructor_id.capitalize()}, Years: {year_from} to {year_to_display}")
+
+def search(circuits, circuit_name):
     found_circuit = False
     index = None  
     for i, circuit in enumerate(circuits):

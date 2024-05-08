@@ -25,7 +25,7 @@ def count_files_in_folder(folder_path):
         count += len(files)
     return count
 
-def store_circuit(path):
+def store_data(path):
     titles = get_file_titles_in_folder(path)
     circuits = []
     for title in titles:
