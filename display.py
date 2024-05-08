@@ -19,3 +19,13 @@ def display_circuit(data):
     print("Country :",data['countryId'])
     city = get_city(data['latitude'], data['longitude'])
     print("City :", city)
+
+def search_circuit(circuits, circuit_name):
+    found_circuit = False
+    index = None  
+    for i, circuit in enumerate(circuits):
+        if circuit.get('name', '') == circuit_name:
+            found_circuit = True
+            index = i
+            break  
+    return found_circuit, index

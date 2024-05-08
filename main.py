@@ -3,12 +3,20 @@ import file_management as fm
 
 
 def main():
-    nb_file = fm.count_files_in_folder(r"C:\Users\Antoine Dupont\Desktop\F1 Stats Project\f1db\circuits")
-    titles = fm.get_file_titles_in_folder(r"C:\Users\Antoine Dupont\Desktop\F1 Stats Project\f1db\circuits")
+    path = r"C:\\Users\Antoine Dupont\Desktop\\F1 Stats Project\\f1db\src\data\\circuits\\"
+    titles = fm.get_file_titles_in_folder(path)
+    circuits = []
     for title in titles:
-        file_path = "circuits\\" + title + ".yml"
+        file_path = path + title + ".yml"
         yaml_data = fm.open_yaml_file(file_path)
-        d.display_circuit(yaml_data)
+        circuits.append(yaml_data)
+    while True:
+        find_circuit = input("\nWhat circuit are your searching ?")
+        found_circuits, index = d.search_circuit(circuits, find_circuit)
+        if found_circuits:
+            d.display_circuit(circuits[index])
+        else:
+            print(f"\nThe circuit {find_circuit} is not in the database.")
 
 
 # Example usage:
