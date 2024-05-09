@@ -22,8 +22,6 @@ def main():
         if year >=1958:
             construct_path = seasons_folder + str(year) + "\constructor-standings.yml"
             constructors_standings[year] = fm.store_file(construct_path)
-    print(driver_standings[1950])
-    print(constructors_standings[1958])
 
     while True:
         to_do = f.get_valid_input("\n\nWhat do you want to search (1 circuit, 2 constructor, 3 drivers, 4 grand-prix, 5 for the standings,0 to stop) ?\n", ["1","2","3","4","5","0"])
@@ -65,7 +63,7 @@ def main():
             elif c_or_d == 1:
                 d.display_standings(driver_standings[year])
             else:
-                d.display_standings(constructors_standings[year])
+                d.display_cstandings(constructors_standings[year])
         elif to_do==0:
             break
 

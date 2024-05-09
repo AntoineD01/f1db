@@ -47,10 +47,19 @@ def display_gp(data):
     print("Country :",data["countryId"].capitalize())
     
 def display_standings(data):
-    print("{:<10}{:<25}{:<10}".format("Position", "Driver ID", "Points"))
+    print("{:<10}{:<25}{:<10}".format("Position", "Driver", "Points"))
     print("-" * 50)
     for entry in data:
         position = entry['position']
         driver_id = entry['driverId']
+        points = entry['points']
+        print("{:<10}{:<25}{:<10}".format(position, driver_id.capitalize(), points))
+
+def display_cstandings(data):
+    print("{:<10}{:<25}{:<10}".format("Position", "Constructor", "Points"))
+    print("-" * 50)
+    for entry in data:
+        position = entry['position']
+        driver_id = entry['constructorId']
         points = entry['points']
         print("{:<10}{:<25}{:<10}".format(position, driver_id.capitalize(), points))
