@@ -15,7 +15,7 @@ def display_circuit(data):
     print('\n\nCIRCUIT\nName :', data['name'])
     if data['previousNames'] != None:
         print('Also known as', data['previousNames'])
-    print("Country :",data['countryId'])
+    print("Country :",data['countryId'].capitalize())
     city = get_city(data['latitude'], data['longitude'])
     print("City :", city)
 
@@ -44,5 +44,5 @@ def display_driver(data):
 
 def display_gp(data):
     print('\n\nGRAND PRIX\nName :', data['fullName'])
-    print("Country :",data["countryId"])
+    print("Country :",data["countryId"].capitalize())
     
