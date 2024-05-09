@@ -7,28 +7,44 @@ def get_valid_input(question, accepted_values):
         else:
             print(f"Invalid input. Please enter one of the following: {', '.join(accepted_values)}.")
 
+def two_part_input(input):
+    words = input.split()
+    if len(words) == 2:
+        capitalized_first_word = words[0].capitalize()
+        capitalized_second_word = words[1].capitalize()
+        output_string = capitalized_first_word + " " + capitalized_second_word
+        return True, output_string
+    else:
+        return False
 
-def search(circuits, circuit_name):
-    found_circuit = False
+def search(database, data):
+    found = False
     index = None  
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
+    for i, sdata in enumerate(database):
+        if sdata.get('name', '') == data:
+            found = True
             index = i
             break
     #Look with a capital letter at first
-    circuit_name = circuit_name.capitalize()
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
+    data = data.capitalize()
+    for i, sdata in enumerate(database):
+        if sdata.get('name', '') == data:
+            found = True
             index = i
             break
     #Look with full caps
-    circuit_name = circuit_name.upper() 
-    for i, circuit in enumerate(circuits):
-        if circuit.get('name', '') == circuit_name:
-            found_circuit = True
+    data = data.upper() 
+    for i, sdata in enumerate(database):
+        if sdata.get('name', '') == data:
+            found = True
             index = i
             break
-    
-    return found_circuit, index
+    #Look with caps on each part of the input
+    valid, capdata = two_part_input(data)
+    if valid:
+        for i, sdata in enumerate(database):
+            if sdata.get('name', '') == capdata:
+                found = True
+                index = i
+                break
+    return found, index
