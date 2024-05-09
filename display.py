@@ -34,3 +34,10 @@ def display_constructors(data):
             else:
                 year_to_display = year_to
             print(f"  - Constructor Name: {constructor_id.capitalize()}, Years: {year_from} to {year_to_display}")
+
+def display_driver(data):
+    print('\n\nDRIVER\nName :', data['fullName'])
+    print("Gender :",data["gender"])
+    print(f"Birth: {data['dateOfBirth']} in {data['placeOfBirth']}, {data['countryOfBirthCountryId'].capitalize()}")
+    if data["dateOfDeath"]!= None:
+        print("Death :", data["dateOfBirth"])

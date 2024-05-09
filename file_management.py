@@ -3,14 +3,14 @@ import os
 
 def open_yaml_file(file_path):
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             data = yaml.safe_load(file)
         return data
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
     except yaml.YAMLError as e:
         print(f"Error while parsing YAML file: {e}")
-
+        
 def get_file_titles_in_folder(folder_path):
     file_titles = []
     for file_name in os.listdir(folder_path):
