@@ -46,3 +46,11 @@ def display_gp(data):
     print('\n\nGRAND PRIX\nName :', data['fullName'])
     print("Country :",data["countryId"].capitalize())
     
+def display_standings(data):
+    print("{:<10}{:<25}{:<10}".format("Position", "Driver ID", "Points"))
+    print("-" * 50)
+    for entry in data:
+        position = entry['position']
+        driver_id = entry['driverId']
+        points = entry['points']
+        print("{:<10}{:<25}{:<10}".format(position, driver_id.capitalize(), points))

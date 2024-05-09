@@ -27,9 +27,13 @@ def count_files_in_folder(folder_path):
 
 def store_data(path):
     titles = get_file_titles_in_folder(path)
-    circuits = []
+    database = []
     for title in titles:
         file_path = path + title + ".yml"
         yaml_data = open_yaml_file(file_path)
-        circuits.append(yaml_data)
-    return circuits
+        database.append(yaml_data)
+    return database
+
+def store_file(path):
+    yaml_data = open_yaml_file(path)
+    return yaml_data
