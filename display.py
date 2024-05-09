@@ -41,3 +41,8 @@ def display_driver(data):
     print(f"Birth: {data['dateOfBirth']} in {data['placeOfBirth']}, {data['countryOfBirthCountryId'].capitalize()}")
     if data["dateOfDeath"]!= None:
         print("Death :", data["dateOfBirth"])
+
+def display_gp(data):
+    print('\n\nGRAND PRIX\nName :', data['fullName'])
+    print("Country :",data["countryId"])
+    

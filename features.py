@@ -7,15 +7,14 @@ def get_valid_input(question, accepted_values):
         else:
             print(f"Invalid input. Please enter one of the following: {', '.join(accepted_values)}.")
 
-def two_part_input(input):
-    words = input.split()
+def two_part_input(data):
+    words = data.split()
     if len(words) == 2:
-        capitalized_first_word = words[0].capitalize()
         capitalized_second_word = words[1].capitalize()
-        output_string = capitalized_first_word + " " + capitalized_second_word
+        output_string = words[0] + " " + capitalized_second_word
         return True, output_string
     else:
-        return False
+        return False, None
 
 def search(database, data):
     found = False

@@ -10,8 +10,10 @@ def main():
     constructors = fm.store_data(path)
     path = r"C:\\Users\Antoine Dupont\Desktop\\F1 Stats Project\\f1db\src\data\\drivers\\"
     drivers = fm.store_data(path)
+    path = r"C:\\Users\Antoine Dupont\Desktop\\F1 Stats Project\\f1db\src\data\\grands-prix\\"
+    grand_prix = fm.store_data(path)
     while True:
-        to_do = f.get_valid_input("\n\nWhat do you want to search (1 for circuit, 2 for constructor, 3 for drivers, 0 to stop) ?\n", ["1","2","3","0"])
+        to_do = f.get_valid_input("\n\nWhat do you want to search (1 for circuit, 2 for constructor, 3 for drivers, 4 for grand-prix, 0 to stop) ?\n", ["1","2","3","4","0"])
         if to_do==1:
             find_circuit = input("\nWhat circuit are your searching ?\n")
             found, index = f.search(circuits, find_circuit)
@@ -33,6 +35,13 @@ def main():
                 d.display_driver(drivers[index])
             else:
                 print(f"\nThe driver {find_driver} is not in the database.")
+        elif to_do==4:
+            find_gp = input("\nWhat GP are your searching ?\n")
+            found, index = f.search(grand_prix, find_gp)
+            if found:
+                d.display_gp(grand_prix[index])
+            else:
+                print(f"\nThe grand prix {find_gp} is not in the database.")
         elif to_do==0:
             break
 
